@@ -1,0 +1,15 @@
+General planning and TODO file for the Globe Visualization project
+
+
+Tasks:
+
+* render a globe
+    * texture mapping
+
+* touch interaction
+    * touch rotate
+    * pinch zoom
+
+* drawing connection arcs
+    * data for connections
+    * mapping from geolocation to sphere coordinated

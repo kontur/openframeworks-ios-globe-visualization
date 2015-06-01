@@ -22,6 +22,12 @@ class ofApp : public ofxiOSApp {
         void gotFocus();
         void gotMemoryWarning();
         void deviceOrientationChanged(int newOrientation);
+    
+    ofCamera camera;
+    ofLight spotlight;
+    
+    
+    int foo;
 
 };
 
