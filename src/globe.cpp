@@ -17,14 +17,13 @@ void globe::update() {
 
 void globe::draw() {
     textureImage.bind();
-    ofFill();
-    ofDrawSphere(ofGetWidth() * .5, ofGetHeight()* .5, 0, 125);
+    
+    //ofSetSphereResolution(16);
+    ofDrawSphere(0, 0, 0, 100);
+    
     textureImage.unbind();
 }
 
 void globe::setTexture(string path) {
     textureImage.loadImage(path);
-    
-
-    //texture.loadData(textureImage.getPixels(), textureImage.getWidth(), textureImage.getHeight(), GL_RGB);
 }

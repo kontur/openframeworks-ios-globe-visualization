@@ -12,4 +12,5 @@ Tasks:
 
 * drawing connection arcs
     * data for connections
+        * read in json
     * mapping from geolocation to sphere coordinated
