@@ -4,6 +4,7 @@
 #include "ofxiOS.h"
 #include "ofxiOSExtras.h"
 #include "globe.h"
+#include "marker.h"
 
 class ofApp : public ofxiOSApp {
 	
@@ -27,6 +28,7 @@ class ofApp : public ofxiOSApp {
     ofCamera camera;
     ofLight spotlight;
     globe g;
+    marker m;
     
     int foo;
 

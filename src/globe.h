@@ -15,17 +15,13 @@
 class globe {
     
     public:
+        globe();
         void update();
         void draw();
-    
-        globe();
-    
-    
         void setTexture(string);
     
     private:
         ofImage textureImage;
-        ofTexture texture;
     
 };
 

@@ -10,6 +10,8 @@ void ofApp::setup(){
     ofEnableBlendMode(OF_BLENDMODE_ADD);
     
     g.setTexture("earth.jpg");
+    
+    m.setLatLng(0, 0);
 }
 
 //--------------------------------------------------------------
@@ -33,6 +35,8 @@ void ofApp::draw(){
     
     ofRotate(foo, 0.0, 1.0, 0.0);
     g.draw();
+    
+    m.draw();
     
     camera.end();
 }
