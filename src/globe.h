@@ -22,6 +22,7 @@ class globe {
     
     private:
         ofImage textureImage;
+        ofSpherePrimitive sphere;
     
 };
 

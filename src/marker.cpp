@@ -18,12 +18,22 @@ void marker::draw() {
     ofSetColor(255, 120, 0);
     ofFill();
     
-    float R = 100;
-    float x = R * cos(lat) * cos(lng);
-    float y = R * cos(lat) * sin(lng);
-    float z = R *sin(lat);
+    float latDeg = ofDegToRad(lat);
+    float lngDeg = ofDegToRad(lng);
     
-    ofDrawSphere(x, y, z, 5);
+    float R = 100;
+    float x = (R * cos(latDeg) * cos(lngDeg));
+    float y = (R * cos(latDeg) * sin(lngDeg));
+    float z = R * sin(latDeg);
+    
+    ofPushMatrix();
+    
+    ofRotateY(-90);
+    ofRotateX(-90);
+    ofDrawSphere(x, y, z, 1);
+    
+    
+    ofPopMatrix();
 }
 
 void marker::update() {

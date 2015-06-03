@@ -28,9 +28,9 @@ class ofApp : public ofxiOSApp {
     ofCamera camera;
     ofLight spotlight;
     globe g;
-    marker m;
+    marker m, m2, m3, m4;
     
-    int foo;
+    float foo;
 
 };
 

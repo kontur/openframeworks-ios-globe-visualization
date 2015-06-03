@@ -9,6 +9,7 @@
 #include "globe.h"
 
 globe::globe() {
+    sphere.setRadius(100);
 }
 
 void globe::update() {
@@ -16,14 +17,34 @@ void globe::update() {
 }
 
 void globe::draw() {
-    textureImage.bind();
     
-    //ofSetSphereResolution(16);
-    ofDrawSphere(0, 0, 0, 100);
+    ofPushMatrix();
+    
+    textureImage.getTextureReference().bind();
+    
+    //mapTexCoordsFromTexture()
+    
+    cout << sphere.getTexCoords();
+    cout << "\n\n";
+    
+    ofColor(0, 255, 255);
+    sphere.drawNormals(2);
+    sphere.drawAxes(150);
+    sphere.drawWireframe();
+    
+    
+    
+    ofRotateX(180);
+    
+    sphere.draw();
     
     textureImage.unbind();
+    
+    ofPopMatrix();
+    
 }
 
 void globe::setTexture(string path) {
     textureImage.loadImage(path);
+    textureImage.mirror(false, true); // vertical, horizontal
 }
