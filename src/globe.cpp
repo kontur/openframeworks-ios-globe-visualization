@@ -22,11 +22,6 @@ void globe::draw() {
     
     textureImage.getTextureReference().bind();
     
-    //mapTexCoordsFromTexture()
-    
-    cout << sphere.getTexCoords();
-    cout << "\n\n";
-    
     ofColor(0, 255, 255);
     sphere.drawNormals(2);
     sphere.drawAxes(150);

@@ -30,7 +30,9 @@ class ofApp : public ofxiOSApp {
     globe g;
     marker m, m2, m3, m4;
     
-    float foo;
+    ofVec2f rotation;
+    ofVec2f rotationSpeed;
+    ofVec2f lastTouch;
 
 };
 

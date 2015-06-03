@@ -15,12 +15,14 @@ void ofApp::setup(){
     m2.setLatLng(60, 20);
     m3.setLatLng(0, 20);
     m4.setLatLng(30, 30);
+    rotation = ofVec2f(0);
+    rotationSpeed = ofVec2f(0);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    g.update();
-    foo += 0.25;
+    rotation = rotation - rotationSpeed;
+    rotationSpeed *= 0.9;
 }
 
 //--------------------------------------------------------------
@@ -47,7 +49,8 @@ void ofApp::draw(){
     
     //ofRotateX(180);
     
-    ofRotate(foo, 0.0, 1.0, 0.0);
+    ofRotate(rotation.x, 0.0, 1.0, 0.0);
+    ofRotate(rotation.y, 1.0, 0.0, 0.0);
     g.draw();
     
     m.draw();
@@ -67,17 +70,21 @@ void ofApp::exit(){
 
 //--------------------------------------------------------------
 void ofApp::touchDown(ofTouchEventArgs & touch){
-
+    if (touch.id == 0) {
+        lastTouch = touch;
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::touchMoved(ofTouchEventArgs & touch){
-
+    rotationSpeed = ofVec2f(lastTouch - touch) / 5;
+    rotationSpeed.y *= 0.5;
+    ofLog() << rotationSpeed;
 }
 
 //--------------------------------------------------------------
 void ofApp::touchUp(ofTouchEventArgs & touch){
-
+    lastTouch = touch;
 }
 
 //--------------------------------------------------------------
