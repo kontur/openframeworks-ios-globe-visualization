@@ -5,26 +5,18 @@ void ofApp::setup(){
     spotlight.enable(); //spotlight is in the global frame and not the camera frame
     
     camera.begin();
-    
-    foo = 0;
+    g.setTexture("earth.jpg");
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+    g.update();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
     
-    //  Draw a green sphere at the center of the canvas.
-    ofSetColor(0, 255, 0);
-    ofFill();
-    ofDrawSphere(ofGetWidth() * .5, ofGetHeight()* .5, 0, 25);
-    foo += 1;
-    
-
-    cout << spotlight.getPitch();
+    g.draw();
 }
 
 //--------------------------------------------------------------
