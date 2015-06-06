@@ -10,37 +10,39 @@
 
 
 marker::marker() {
-    lat = 0;
-    lng = 0;
+    radius = 100;
+    geolocation = ofVec2f(0);
+    coordinates = ofVec3f(0);
 }
 
 void marker::draw() {
     ofSetColor(255, 120, 0);
     ofFill();
     
-    float latDeg = ofDegToRad(lat);
-    float lngDeg = ofDegToRad(lng);
-    
-    float R = 100;
-    float x = (R * cos(latDeg) * cos(lngDeg));
-    float y = (R * cos(latDeg) * sin(lngDeg));
-    float z = R * sin(latDeg);
-    
     ofPushMatrix();
     
     ofRotateY(-90);
     ofRotateX(-90);
-    ofDrawSphere(x, y, z, 1);
-    
+    ofDrawSphere(coordinates.x, coordinates.y, coordinates.z, 1);
     
     ofPopMatrix();
 }
 
-void marker::update() {
-    
+void marker::update(float r) {
+    updateCoordinates(r);
 }
 
-void marker::setLatLng(float _lat, float _lng) {
-    lat = _lat;
-    lng = _lng;
+void marker::setLatLng(ofVec2f latlng) {
+    geolocation.x = latlng.x;
+    geolocation.y = latlng.y;
+    
+    // upon chaning the geolocation also calculate new coordinates
+    updateCoordinates(radius);
+}
+
+void marker::updateCoordinates(float r) {
+    // update coordinates only if radius has changed
+    if (r != radius) {
+        coordinates = helpers::geolocationToCoordinates(geolocation, radius);
+    }
 }

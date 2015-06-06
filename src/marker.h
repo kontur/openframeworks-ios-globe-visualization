@@ -10,20 +10,23 @@
 #define __GlobeVisualization__marker__
 
 #include "ofMain.h"
+#include "helpers.h"
+#include "ofxiOS.h"
 
 class marker {
-    
     
     public:
         marker();
         void draw();
-        void update();
-        void setLatLng(float, float);
+        void update(float);
+        void setLatLng(ofVec2f);
 
     private:
-        float lat;
-        float lng;
+        float radius;
+        ofVec2f geolocation;
+        ofVec3f coordinates;
     
+        void updateCoordinates(float);
     
 };
 

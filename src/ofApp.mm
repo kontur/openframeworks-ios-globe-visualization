@@ -12,10 +12,10 @@ void ofApp::setup(){
     
     g.setTexture("earth2.bmp");
     
-    m.setLatLng(0, 0);
-    m2.setLatLng(60, 20);
-    m3.setLatLng(0, 20);
-    m4.setLatLng(30, 30);
+    m.setLatLng(ofVec2f(0, 0));
+    m2.setLatLng(ofVec2f(60, 20));
+    m3.setLatLng(ofVec2f(0, 20));
+    m4.setLatLng(ofVec2f(30, 30));
     
     // start of with not rotation on the globe
     // note both the speed of rotation and the current rotation
