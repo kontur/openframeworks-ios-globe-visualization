@@ -19,6 +19,7 @@
 		678E131017951549005B6D19 /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 678E130F17951549005B6D19 /* Default-568h@2x~iphone.png */; };
 		8F10BF5D1B1C952900297C90 /* TODO.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8F10BF5C1B1C952900297C90 /* TODO.txt */; };
 		8F4B0A951B1F60F500E31046 /* globe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F4B0A941B1F60F500E31046 /* globe.cpp */; };
+		8F8529BD1B22EEAB00F5489A /* helpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F8529BB1B22EEAB00F5489A /* helpers.cpp */; };
 		8FBAD1E51B1F2B8E00B00E8A /* marker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAD1E31B1F2B8E00B00E8A /* marker.cpp */; };
 		8FBAD1E71B1F325F00B00E8A /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAD1E61B1F325F00B00E8A /* README.md */; };
 		BB16EBD20F2B2A9500518274 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD10F2B2A9500518274 /* OpenGLES.framework */; };
@@ -68,6 +69,8 @@
 		678E130F17951549005B6D19 /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x~iphone.png"; path = "bin/data/Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
 		8F10BF5C1B1C952900297C90 /* TODO.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO.txt; sourceTree = "<group>"; };
 		8F4B0A941B1F60F500E31046 /* globe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = globe.cpp; sourceTree = "<group>"; };
+		8F8529BB1B22EEAB00F5489A /* helpers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = helpers.cpp; sourceTree = "<group>"; };
+		8F8529BC1B22EEAB00F5489A /* helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = helpers.h; sourceTree = "<group>"; };
 		8FBAD1DF1B1F148000B00E8A /* globe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = globe.h; sourceTree = "<group>"; };
 		8FBAD1E31B1F2B8E00B00E8A /* marker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = marker.cpp; sourceTree = "<group>"; };
 		8FBAD1E41B1F2B8E00B00E8A /* marker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = marker.h; sourceTree = "<group>"; };
@@ -214,6 +217,8 @@
 				8FBAD1DF1B1F148000B00E8A /* globe.h */,
 				8FBAD1E31B1F2B8E00B00E8A /* marker.cpp */,
 				8FBAD1E41B1F2B8E00B00E8A /* marker.h */,
+				8F8529BB1B22EEAB00F5489A /* helpers.cpp */,
+				8F8529BC1B22EEAB00F5489A /* helpers.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -323,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FBAD1E51B1F2B8E00B00E8A /* marker.cpp in Sources */,
+				8F8529BD1B22EEAB00F5489A /* helpers.cpp in Sources */,
 				8FBAD1E71B1F325F00B00E8A /* README.md in Sources */,
 				E4D8936E11527B74007E1F53 /* main.mm in Sources */,
 				8F4B0A951B1F60F500E31046 /* globe.cpp in Sources */,

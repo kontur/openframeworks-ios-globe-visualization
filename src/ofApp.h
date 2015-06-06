@@ -5,6 +5,7 @@
 #include "ofxiOSExtras.h"
 #include "globe.h"
 #include "marker.h"
+#include "helpers.h"
 
 class ofApp : public ofxiOSApp {
 	
@@ -27,12 +28,22 @@ class ofApp : public ofxiOSApp {
     
     ofCamera camera;
     ofLight spotlight;
+    
+    float zoom;
+    float newZoom;
+    float zoomEasing;
+    
     globe g;
     marker m, m2, m3, m4;
     
     ofVec2f rotation;
     ofVec2f rotationSpeed;
+    float rotationSpeedEasing;
+    
+    
     ofVec2f lastTouch;
+    
+    float initialTouchDistance;
 
 };
 
