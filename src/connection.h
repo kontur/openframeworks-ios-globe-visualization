@@ -24,6 +24,8 @@ class connection {
         // two-dimensional vectors
         ofVec2f from;
         ofVec2f to;
+    
+        float radius;
 };
 
 #endif /* defined(__GlobeVisualization__link__) */

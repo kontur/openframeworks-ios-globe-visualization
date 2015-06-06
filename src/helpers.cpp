@@ -34,13 +34,15 @@ float helpers::constrain(float value, float min, float max) {
  * Simple conversion from two dimensional vector to coordinates
  */
 ofVec3f helpers::geolocationToCoordinates(ofVec2f geolocation, float radius) {
-    
+    ofLog() << geolocation;
     float latDeg = ofDegToRad(geolocation.x);
     float lngDeg = ofDegToRad(geolocation.y);
     
     float x = (radius * cos(latDeg) * cos(lngDeg));
     float y = (radius * cos(latDeg) * sin(lngDeg));
     float z = radius * sin(latDeg);
+    
+    ofLog() << ofVec3f(x, y, z);
     
     return ofVec3f(x, y, z);
 }

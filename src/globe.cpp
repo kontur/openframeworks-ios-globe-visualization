@@ -18,6 +18,7 @@ void globe::update() {
 
 void globe::draw() {
     
+    
     ofPushMatrix();
     
     ofSetColor(255);
@@ -42,7 +43,8 @@ void globe::draw() {
     sphere.drawNormals(5);
     sphere.drawAxes(150);
     
-    ofSetColor(0, 50, 75);
+    ofSetLineWidth(0.5);
+    ofSetColor(0, 50, 75, 50);
     sphere.drawWireframe();
 
     

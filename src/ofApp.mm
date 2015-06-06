@@ -8,7 +8,7 @@ void ofApp::setup(){
     ofEnableDepthTest();
     ofEnableAlphaBlending();
     ofEnableSmoothing();
-    ofEnableBlendMode(OF_BLENDMODE_ADD);
+    ofEnableBlendMode(OF_BLENDMODE_ALPHA);
     
     g.setTexture("earth2.bmp");
     
@@ -16,7 +16,7 @@ void ofApp::setup(){
     m2.setLatLng(ofVec2f(60, 20));
     m3.setLatLng(ofVec2f(0, 20));
     m4.setLatLng(ofVec2f(30, 30));
-    c.init(ofVec2f(60, 20), ofVec2f(0, 20));
+    c.init(ofVec2f(60,20), ofVec2f(0, 0));
     
     // start of with not rotation on the globe
     // note both the speed of rotation and the current rotation
@@ -58,14 +58,14 @@ void ofApp::draw(){
     camera.lookAt(ofVec3f(0, 0, 0));
     camera.setNearClip(0.0);
     camera.setFarClip(1000.0);
-/*
+
     // setup lights
     spotlight.enable();
     spotlight.setPosition(-300, 300, -300);
     spotlight.setAmbientColor(ofFloatColor(100, 150, 255));
     spotlight.setDiffuseColor(ofFloatColor(255, 150, 100));
     spotlight.lookAt(ofVec3f(0, 0, 0));
-  */
+  
     // rotate the whole view based on interaction
     ofRotate(rotation.x, 0.0, 1.0, 0.0);
     ofRotate(rotation.y, 1.0, 0.0, 0.0);

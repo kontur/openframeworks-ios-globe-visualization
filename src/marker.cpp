@@ -16,18 +16,16 @@ marker::marker() {
 }
 
 void marker::draw() {
-    
     ofPushMatrix();
     
     ofRotateY(-90);
     ofRotateX(-90);
     
-    ofSetColor(255, 120, 0);
+    ofSetColor(255, 120, 0, 100);
     ofFill();
-    ofDrawSphere(coordinates.x, coordinates.y, coordinates.z, 1);
+    ofDrawSphere(coordinates.x, coordinates.y, coordinates.z, 5);
     
     ofPopMatrix();
-    
 }
 
 void marker::update(float r) {
@@ -43,8 +41,5 @@ void marker::setLatLng(ofVec2f latlng) {
 }
 
 void marker::updateCoordinates(float r) {
-    // update coordinates only if radius has changed
-    if (r != radius) {
-        coordinates = helpers::geolocationToCoordinates(geolocation, radius);
-    }
+    coordinates = helpers::geolocationToCoordinates(geolocation, radius);
 }
