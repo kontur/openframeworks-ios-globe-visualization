@@ -1,37 +1,35 @@
 //
-//  link.cpp
+//  connection.cpp
 //  GlobeVisualization
 //
 //  Created by Johannes Neumeier on 06/06/15.
 //
 //
 
-#include "link.h"
+#include "connection.h"
 
-link::link() {
+connection::connection() {
     
 }
 
 
-void link::init(ofVec2f _from, ofVec2f _to) {
+void connection::init(ofVec2f _from, ofVec2f _to) {
     from = _from;
     to = _to;
 }
 
 
-void link::draw() {
-    
-    ofSetColor(255, 120, 0);
-    ofFill();
+void connection::draw() {
     
     ofVec3f fromCoords = helpers::geolocationToCoordinates(from, 100);
     ofVec3f toCoords = helpers::geolocationToCoordinates(to, 100);
-    
     
     ofPushMatrix();
     
     ofRotateY(-90);
     ofRotateX(-90);
+    
+    ofSetColor(0, 255, 255);
     ofLine(fromCoords.x, fromCoords.y, toCoords.x, toCoords.y);
     
     

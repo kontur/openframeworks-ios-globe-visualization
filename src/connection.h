@@ -1,5 +1,5 @@
 //
-//  link.h
+//  connection.h
 //  GlobeVisualization
 //
 //  Created by Johannes Neumeier on 06/06/15.
@@ -13,9 +13,9 @@
 #include "ofxiOS.h"
 #include "helpers.h"
 
-class link {
+class connection {
     public:
-        link();
+        connection();
         void init(ofVec2f, ofVec2f);
         void draw();
     

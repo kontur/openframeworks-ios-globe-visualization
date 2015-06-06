@@ -6,6 +6,7 @@
 #include "globe.h"
 #include "marker.h"
 #include "helpers.h"
+#include "connection.h"
 
 class ofApp : public ofxiOSApp {
 	
@@ -35,6 +36,7 @@ class ofApp : public ofxiOSApp {
     
     globe g;
     marker m, m2, m3, m4;
+    connection c;
     
     ofVec2f rotation;
     ofVec2f rotationSpeed;

@@ -16,16 +16,18 @@ marker::marker() {
 }
 
 void marker::draw() {
-    ofSetColor(255, 120, 0);
-    ofFill();
     
     ofPushMatrix();
     
     ofRotateY(-90);
     ofRotateX(-90);
+    
+    ofSetColor(255, 120, 0);
+    ofFill();
     ofDrawSphere(coordinates.x, coordinates.y, coordinates.z, 1);
     
     ofPopMatrix();
+    
 }
 
 void marker::update(float r) {

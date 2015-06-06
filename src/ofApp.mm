@@ -5,7 +5,7 @@ void ofApp::setup(){
     ofBackground(0);
     
     // various rendering intent settings
-    ofDisableDepthTest();
+    ofEnableDepthTest();
     ofEnableAlphaBlending();
     ofEnableSmoothing();
     ofEnableBlendMode(OF_BLENDMODE_ADD);
@@ -16,6 +16,7 @@ void ofApp::setup(){
     m2.setLatLng(ofVec2f(60, 20));
     m3.setLatLng(ofVec2f(0, 20));
     m4.setLatLng(ofVec2f(30, 30));
+    c.init(ofVec2f(60, 20), ofVec2f(0, 20));
     
     // start of with not rotation on the globe
     // note both the speed of rotation and the current rotation
@@ -57,14 +58,14 @@ void ofApp::draw(){
     camera.lookAt(ofVec3f(0, 0, 0));
     camera.setNearClip(0.0);
     camera.setFarClip(1000.0);
-
+/*
     // setup lights
     spotlight.enable();
     spotlight.setPosition(-300, 300, -300);
-    spotlight.setAmbientColor(ofFloatColor(100, 100, 100));
-    spotlight.setDiffuseColor(ofFloatColor(100, 100, 100));
+    spotlight.setAmbientColor(ofFloatColor(100, 150, 255));
+    spotlight.setDiffuseColor(ofFloatColor(255, 150, 100));
     spotlight.lookAt(ofVec3f(0, 0, 0));
-    
+  */
     // rotate the whole view based on interaction
     ofRotate(rotation.x, 0.0, 1.0, 0.0);
     ofRotate(rotation.y, 1.0, 0.0, 0.0);
@@ -77,6 +78,8 @@ void ofApp::draw(){
     m2.draw();
     m3.draw();
     m4.draw();
+    
+    c.draw();
     
     camera.end();
     
