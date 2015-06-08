@@ -19,11 +19,22 @@ class marker {
         marker();
         void draw();
         void update(float);
+    
+        // getters and setters
         void setLatLng(ofVec2f);
+    
+        void setSize(float);
+        float getSize();
+    
+        void setName(string);
+        string getName();
+    
         ofVec3f getCoordinates();
 
     private:
         float radius;
+        float projectionRadius;
+        string name;
         ofVec2f geolocation;
         ofVec3f coordinates;
     

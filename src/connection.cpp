@@ -29,12 +29,12 @@ void connection::draw() {
     ofRotateY(-90);
     ofRotateX(-90);
     
-    
+    /*
     ofSetColor(0, 255, 255, 100);
 
     ofDrawSphere(fromCoords.x, fromCoords.y, fromCoords.z, 2);
     ofDrawSphere(toCoords.x, toCoords.y, toCoords.z, 2);
-
+    */
     
     float curviness = -5;
     ofNoFill();

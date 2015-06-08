@@ -32,6 +32,7 @@ class ofApp : public ofxiOSApp {
     private:
         // private functions
         void initConnections();
+        void addMarker(string, ofVec2f, float);
     
     
         // private variables

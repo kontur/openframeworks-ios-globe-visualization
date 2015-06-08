@@ -217,17 +217,46 @@ void ofApp::initConnections() {
         ofVec2f from = ofVec2f(csv.getFloat(i, 1), csv.getFloat(i, 2));
         ofVec2f to = ofVec2f(csv.getFloat(i, 5), csv.getFloat(i, 6));
         
-        /*
-        marker newMarker = marker();
-        ofLog() << i;
-        ofLog() << csv.getFloat(i, 1);
-        ofLog() << csv.getFloat(i, 5);
-        newMarker.setLatLng(ofVec2f(csv.getFloat(i, 1), csv.getFloat(i, 5)));
-        markers.push_back(newMarker);
-        */
+        unsigned int numRoutes = csv.getFloat(i, 8);
+        
+        string fromName = csv.getString(i, 0);
+        string toName = csv.getString(i, 4);
+        
+        addMarker(fromName, from, numRoutes / 10);
+        addMarker(toName, to, numRoutes / 10);
         
         connection newConnection = connection();
         newConnection.init(from, to);
         connections.push_back(newConnection);
+    }
+}
+
+/**
+ * Add a new marker or increase its size
+ */
+void ofApp::addMarker(string name, ofVec2f latlng, float size) {
+    Boolean exists = false;
+    marker m;
+    
+    // check if a marker by this name is already in the markers vector
+    for (unsigned int i = 0; i < markers.size(); i++) {
+        m = markers.at(i);
+        exists = m.getName() == name;
+        if (exists) {
+            break;
+        }
+    }
+    
+    // if it exists, update it's size, else create a new one and push
+    // it to the markers vector
+    if (exists) {
+        m.setSize(m.getSize() + size);
+    } else {
+        m = marker();
+        m.setLatLng(latlng);
+        m.setName(name);
+        m.setSize(size);
+        
+        markers.push_back(m);
     }
 }
