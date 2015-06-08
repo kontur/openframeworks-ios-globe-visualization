@@ -32,8 +32,13 @@ class marker {
         ofVec3f getCoordinates();
 
     private:
+        // the radius of the visual indicator
         float radius;
+
+        // the radius of the globe the connetionon is being projected onto
         float projectionRadius;
+    
+        // internals
         string name;
         ofVec2f geolocation;
         ofVec3f coordinates;

@@ -19,13 +19,22 @@ class connection {
         void init(ofVec2f, ofVec2f);
         void draw();
     
+        void setIntensity(float);
+    
     private:
         // geocoordinates of the endpoints stored in
         // two-dimensional vectors
         ofVec2f from;
         ofVec2f to;
     
-        float radius;
+        // the radius of the globe the connetionon is being projected onto
+        float projectionRadius;
+    
+        // distance of the two connection points on the projection globe
+        float distance;
+    
+        // 0-1 visual indicator
+        float intensity;
 };
 
 #endif /* defined(__GlobeVisualization__link__) */
