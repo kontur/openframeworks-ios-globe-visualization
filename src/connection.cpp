@@ -43,7 +43,7 @@ void connection::draw() {
             fromCoords.x, fromCoords.y, fromCoords.z,
             toCoords.x, toCoords.y, toCoords.z,
             toCoords.x * curviness, toCoords.y * curviness, toCoords.z * curviness);
-       
+    
     
     ofPopMatrix();
 }

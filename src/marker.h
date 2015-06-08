@@ -20,6 +20,7 @@ class marker {
         void draw();
         void update(float);
         void setLatLng(ofVec2f);
+        ofVec3f getCoordinates();
 
     private:
         float radius;

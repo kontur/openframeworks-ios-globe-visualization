@@ -33,6 +33,8 @@ void marker::update(float r) {
 }
 
 void marker::setLatLng(ofVec2f latlng) {
+    ofLog() << latlng;
+    
     geolocation.x = latlng.x;
     geolocation.y = latlng.y;
     
@@ -42,4 +44,8 @@ void marker::setLatLng(ofVec2f latlng) {
 
 void marker::updateCoordinates(float r) {
     coordinates = helpers::geolocationToCoordinates(geolocation, radius);
+}
+
+ofVec3f marker::getCoordinates() {
+    return coordinates;
 }

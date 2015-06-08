@@ -23,6 +23,7 @@
 		8FBAD1E51B1F2B8E00B00E8A /* marker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAD1E31B1F2B8E00B00E8A /* marker.cpp */; };
 		8FBAD1E71B1F325F00B00E8A /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAD1E61B1F325F00B00E8A /* README.md */; };
 		8FD8F8951B22F93A007F8C86 /* connection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FD8F8941B22F93A007F8C86 /* connection.cpp */; };
+		8FF6F7631B25A35600695929 /* ofxCsv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FF6F7611B25A35600695929 /* ofxCsv.cpp */; };
 		BB16EBD20F2B2A9500518274 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD10F2B2A9500518274 /* OpenGLES.framework */; };
 		BB16EBD90F2B2AB500518274 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD80F2B2AB500518274 /* QuartzCore.framework */; };
 		BBE5EAB80F49AD8400F28951 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE5EAB70F49AD8400F28951 /* AudioToolbox.framework */; };
@@ -78,6 +79,8 @@
 		8FBAD1E61B1F325F00B00E8A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8FD8F8941B22F93A007F8C86 /* connection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = connection.cpp; sourceTree = "<group>"; };
 		8FD8F8961B22F950007F8C86 /* connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = connection.h; sourceTree = "<group>"; };
+		8FF6F7611B25A35600695929 /* ofxCsv.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxCsv.cpp; sourceTree = "<group>"; };
+		8FF6F7621B25A35600695929 /* ofxCsv.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxCsv.h; sourceTree = "<group>"; };
 		BB16EBD10F2B2A9500518274 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BB16EBD80F2B2AB500518274 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BB24DDC910DA781C00E9C588 /* ofxiOS-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ofxiOS-Info.plist"; sourceTree = "<group>"; };
@@ -167,6 +170,24 @@
 			name = "core frameworks";
 			sourceTree = "<group>";
 		};
+		8FF6F75F1B25A35600695929 /* ofxCsv */ = {
+			isa = PBXGroup;
+			children = (
+				8FF6F7601B25A35600695929 /* src */,
+			);
+			name = ofxCsv;
+			sourceTree = "<group>";
+		};
+		8FF6F7601B25A35600695929 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				8FF6F7611B25A35600695929 /* ofxCsv.cpp */,
+				8FF6F7621B25A35600695929 /* ofxCsv.h */,
+			);
+			name = src;
+			path = ../../../addons/ofxCsv/src;
+			sourceTree = "<group>";
+		};
 		BB16E9930F2B1E5900518274 /* libs */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +199,7 @@
 		BB16F26B0F2B646B00518274 /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				8FF6F75F1B25A35600695929 /* ofxCsv */,
 			);
 			name = addons;
 			sourceTree = "<group>";
@@ -336,6 +358,7 @@
 				8F8529BD1B22EEAB00F5489A /* helpers.cpp in Sources */,
 				8FBAD1E71B1F325F00B00E8A /* README.md in Sources */,
 				E4D8936E11527B74007E1F53 /* main.mm in Sources */,
+				8FF6F7631B25A35600695929 /* ofxCsv.cpp in Sources */,
 				8F4B0A951B1F60F500E31046 /* globe.cpp in Sources */,
 				E4D8936F11527B74007E1F53 /* ofApp.mm in Sources */,
 				8FD8F8951B22F93A007F8C86 /* connection.cpp in Sources */,
@@ -363,6 +386,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "armv6 armv7";
 			};
 			name = Debug;
@@ -376,6 +400,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "armv6 armv7";
 			};
 			name = Release;

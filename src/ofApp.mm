@@ -29,6 +29,11 @@ void ofApp::setup(){
     zoom = 1.0;
     newZoom = 1.0;
     zoomEasing = 0.75;
+    
+    // load csv file for now, later make this more dynamic
+    csv.loadFile(ofToDataPath("citiesToCities.csv"), ",");
+    
+    initConnections();
 }
 
 //--------------------------------------------------------------
@@ -78,6 +83,21 @@ void ofApp::draw(){
     m2.draw();
     m3.draw();
     m4.draw();
+    
+//    markers.size();
+    ofLog() << markers.size();
+    for (unsigned int i = 0; i < markers.size(); i++) {
+//        ofLog() << markers.at(i);
+        marker myMarker = markers.at(i);
+        ofLog() << myMarker.getCoordinates();
+        myMarker.draw();
+    }
+    
+    ofLog() << connections.size();
+    for (unsigned int i = 0; i < connections.size(); i++) {
+        connection myConnection = connections.at(i);
+        myConnection.draw();
+    }
     
     c.draw();
     
@@ -169,4 +189,45 @@ void ofApp::gotMemoryWarning(){
 //--------------------------------------------------------------
 void ofApp::deviceOrientationChanged(int newOrientation){
 
+}
+
+
+// other app functions
+void ofApp::initConnections() {
+    /*
+    ofLog() << csv.data[0].max_size();
+    ofLog() << csv.getString(0, 0);
+    */
+    ofLog() << csv.numRows;
+    
+    
+    // csv data like:
+    // 0 "departure city",
+    // 1 "long. departure (decimal)",
+    // 2 "lat. departure (decimal)",
+    // 3 "departure country",
+    // 4 "arrival city",
+    // 5 "long. departure (decimal)",
+    // 6 "lat. departure (decimal)",
+    // 7 "arrival country",
+    // 8 "number of routes",
+    // 9 "distance"
+    
+    for (int i = 1; i < min(csv.numRows, 100); i++) {
+        ofVec2f from = ofVec2f(csv.getFloat(i, 1), csv.getFloat(i, 2));
+        ofVec2f to = ofVec2f(csv.getFloat(i, 5), csv.getFloat(i, 6));
+        
+        /*
+        marker newMarker = marker();
+        ofLog() << i;
+        ofLog() << csv.getFloat(i, 1);
+        ofLog() << csv.getFloat(i, 5);
+        newMarker.setLatLng(ofVec2f(csv.getFloat(i, 1), csv.getFloat(i, 5)));
+        markers.push_back(newMarker);
+        */
+        
+        connection newConnection = connection();
+        newConnection.init(from, to);
+        connections.push_back(newConnection);
+    }
 }
