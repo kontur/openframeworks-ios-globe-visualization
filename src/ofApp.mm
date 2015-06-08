@@ -13,9 +13,13 @@ void ofApp::setup(){
     g.setTexture("earth2.bmp");
     
     m.setLatLng(ofVec2f(0, 0));
+    m.setSize(5);
     m2.setLatLng(ofVec2f(60, 20));
-    m3.setLatLng(ofVec2f(0, 20));
+    m2.setSize(5);
+    m3.setLatLng(ofVec2f(34.0204989,-118.4117325));
+    m3.setSize(15);
     m4.setLatLng(ofVec2f(30, 30));
+    m4.setSize(5);
     c.init(ofVec2f(60,20), ofVec2f(0, 0));
     
     // start of with not rotation on the globe
@@ -84,16 +88,12 @@ void ofApp::draw(){
     m3.draw();
     m4.draw();
     
-//    markers.size();
-    ofLog() << markers.size();
+    
     for (unsigned int i = 0; i < markers.size(); i++) {
-//        ofLog() << markers.at(i);
         marker myMarker = markers.at(i);
-        ofLog() << myMarker.getCoordinates();
         myMarker.draw();
     }
     
-    ofLog() << connections.size();
     for (unsigned int i = 0; i < connections.size(); i++) {
         connection myConnection = connections.at(i);
         myConnection.draw();
@@ -214,19 +214,26 @@ void ofApp::initConnections() {
     // 9 "distance"
     
     for (int i = 1; i < min(csv.numRows, 100); i++) {
-        ofVec2f from = ofVec2f(csv.getFloat(i, 1), csv.getFloat(i, 2));
-        ofVec2f to = ofVec2f(csv.getFloat(i, 5), csv.getFloat(i, 6));
+        // note the order longitude, latitude!
+        ofVec2f from = ofVec2f(csv.getFloat(i, 2), csv.getFloat(i, 1));
+        ofVec2f to = ofVec2f(csv.getFloat(i, 6), csv.getFloat(i, 5));
         
-        unsigned int numRoutes = csv.getFloat(i, 8);
+        unsigned int numRoutes = csv.getInt(i, 8);
         
         string fromName = csv.getString(i, 0);
         string toName = csv.getString(i, 4);
         
-        addMarker(fromName, from, numRoutes / 10);
-        addMarker(toName, to, numRoutes / 10);
+        // assuming max 20 routes in the data; this could also be set as percent based
+        // on a loop over all data
+        // note the need to cast to float, otherwise int / int == int
+        float intensity = (float)numRoutes / 20;
+        
+        addMarker(fromName, from, intensity);
+        addMarker(toName, to, intensity);
         
         connection newConnection = connection();
         newConnection.init(from, to);
+        newConnection.setIntensity(intensity);
         connections.push_back(newConnection);
     }
 }
