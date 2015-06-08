@@ -8,7 +8,7 @@ void ofApp::setup(){
     ofEnableDepthTest();
     ofEnableAlphaBlending();
     ofEnableSmoothing();
-    ofEnableBlendMode(OF_BLENDMODE_ALPHA);
+    ofEnableBlendMode(OF_BLENDMODE_ADD);
     
     g.setTexture("earth2.bmp");
     
@@ -70,10 +70,11 @@ void ofApp::draw(){
 
     // setup lights
     spotlight.enable();
-    spotlight.setPosition(-300, 300, -300);
-    spotlight.setAmbientColor(ofFloatColor(100, 150, 255));
-    spotlight.setDiffuseColor(ofFloatColor(255, 150, 100));
+    spotlight.setPosition(-300, 300, 300);
+    spotlight.setAmbientColor(ofColor(200, 240, 255));
+    //spotlight.setDiffuseColor(ofColor(0, 150, 255));
     spotlight.lookAt(ofVec3f(0, 0, 0));
+    
   
     // rotate the whole view based on interaction
     ofRotate(rotation.x, 0.0, 1.0, 0.0);

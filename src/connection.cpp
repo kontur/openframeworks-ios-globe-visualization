@@ -43,13 +43,16 @@ void connection::draw() {
     // set the intensitiy of the connection curves dynamically
     // note even on full never go to 100% opaque (for stylistic reasons)
     int alpha = (int)ofMap(intensity, 0.0, 1.0, 10.0, 200.0);
+    int red = (int)ofMap(intensity, 0.0, 1.0, 0.0, 255.0);
     
-    ofSetColor(0, 150, 255, alpha);
+    ofLog() << red;
+    
+    ofSetColor(red, 255 - red, 0, alpha);
     ofCurve(fromCoords.x * curviness, fromCoords.y * curviness, fromCoords.z * curviness,
             fromCoords.x, fromCoords.y, fromCoords.z,
             toCoords.x, toCoords.y, toCoords.z,
             toCoords.x * curviness, toCoords.y * curviness, toCoords.z * curviness);
-    
+    ofSetColor(0);
     
     ofPopMatrix();
 }
