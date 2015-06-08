@@ -12,22 +12,24 @@ connection::connection() {
     projectionRadius = 100;
     intensity = 0.1;
     distance = 0;
+    
+    alpha = 0;
+    red = 0;
+    yellow = 0;
 }
 
 void connection::init(ofVec2f _from, ofVec2f _to) {
     from = _from;
     to = _to;
     
-    ofVec3f fromCoords = helpers::geolocationToCoordinates(from, projectionRadius);
-    ofVec3f toCoords = helpers::geolocationToCoordinates(to, projectionRadius);
+    fromCoords = helpers::geolocationToCoordinates(from, projectionRadius);
+    toCoords = helpers::geolocationToCoordinates(to, projectionRadius);
     
     distance = fromCoords.distance(toCoords);
+    updateLook();
 }
 
 void connection::draw() {
-    ofVec3f fromCoords = helpers::geolocationToCoordinates(from, projectionRadius);
-    ofVec3f toCoords = helpers::geolocationToCoordinates(to, projectionRadius);
-    
     ofPushMatrix();
     
     ofRotateY(-90);
@@ -36,18 +38,15 @@ void connection::draw() {
     // set dynamic "steepness" of the curve based on the absolute distance
     // between the point; this essentially makes sure the connection curves enough
     // to not go through the globe
-    float curviness = -5 * ofMap(distance, 0, 200, 0.5, 2);
     ofNoFill();
     ofSetLineWidth(1);
+
+    ofSetColor(red, yellow, 0, alpha);
     
-    // set the intensitiy of the connection curves dynamically
-    // note even on full never go to 100% opaque (for stylistic reasons)
-    int alpha = (int)ofMap(intensity, 0.0, 1.0, 10.0, 200.0);
-    int red = (int)ofMap(intensity, 0.0, 1.0, 0.0, 255.0);
+    // TODO this could be dyanmically adjusted based on the amount of amount of
+    // connection overall displayed
+    ofSetCurveResolution((int)(10 + distance / 10));
     
-    ofLog() << red;
-    
-    ofSetColor(red, 255 - red, 0, alpha);
     ofCurve(fromCoords.x * curviness, fromCoords.y * curviness, fromCoords.z * curviness,
             fromCoords.x, fromCoords.y, fromCoords.z,
             toCoords.x, toCoords.y, toCoords.z,
@@ -59,4 +58,14 @@ void connection::draw() {
 
 void connection::setIntensity(float i) {
     intensity = helpers::constrain(i, 0.0, 1.0);
+    updateLook();
+}
+
+void connection::updateLook() {
+    // set the intensitiy of the connection curves dynamically
+    // note even on full never go to 100% opaque (for stylistic reasons)
+    alpha = (int)ofMap(intensity, 0.0, 1.0, 10.0, 200.0);
+    red = (int)ofMap(intensity, 0.0, 1.0, 0.0, 255.0);
+    yellow = 255 - red;
+    curviness = -5 * ofMap(distance, 0, 200, 0.5, 2);
 }

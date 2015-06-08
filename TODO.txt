@@ -9,8 +9,16 @@ Tasks:
 * touch interaction
     * touch rotate
     * pinch zoom
+    * add interface:
+        * viewport reset button
+        * init screen
+        * (maybe) UIKit slider for # connections / connection tension
 
 * drawing connection arcs
     * data for connections
         * read in json
     * mapping from geolocation to sphere coordinated
+
+Improvements:
+* touch rotate behaves unnatural; y axis rotate inverts on the backside of the sphere...
+* connections are drawn even behind the globe / globe not "solid"

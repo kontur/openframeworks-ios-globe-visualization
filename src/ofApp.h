@@ -51,11 +51,7 @@ class ofApp : public ofxiOSApp {
     
         globe g;
     
-    
-        // various mapped items
-        marker m, m2, m3, m4;
-        connection c;
-    
+        // mapped markers and connections vectors
         vector<marker> markers;
         vector<connection> connections;
     

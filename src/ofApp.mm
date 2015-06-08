@@ -12,16 +12,6 @@ void ofApp::setup(){
     
     g.setTexture("earth2.bmp");
     
-    m.setLatLng(ofVec2f(0, 0));
-    m.setSize(5);
-    m2.setLatLng(ofVec2f(60, 20));
-    m2.setSize(5);
-    m3.setLatLng(ofVec2f(34.0204989,-118.4117325));
-    m3.setSize(15);
-    m4.setLatLng(ofVec2f(30, 30));
-    m4.setSize(5);
-    c.init(ofVec2f(60,20), ofVec2f(0, 0));
-    
     // start of with not rotation on the globe
     // note both the speed of rotation and the current rotation
     // are stored as a two direction vector
@@ -80,16 +70,11 @@ void ofApp::draw(){
     ofRotate(rotation.x, 0.0, 1.0, 0.0);
     ofRotate(rotation.y, 1.0, 0.0, 0.0);
     
+    
     // draw globe
     g.draw();
     
-    // draw all markers
-    m.draw();
-    m2.draw();
-    m3.draw();
-    m4.draw();
-    
-    
+    // draw the markers and connections
     for (unsigned int i = 0; i < markers.size(); i++) {
         marker myMarker = markers.at(i);
         myMarker.draw();
@@ -99,8 +84,6 @@ void ofApp::draw(){
         connection myConnection = connections.at(i);
         myConnection.draw();
     }
-    
-    c.draw();
     
     camera.end();
     
@@ -214,7 +197,7 @@ void ofApp::initConnections() {
     // 8 "number of routes",
     // 9 "distance"
     
-    for (int i = 1; i < min(csv.numRows, 100); i++) {
+    for (int i = 1; i < min(csv.numRows, 1000); i++) {
         // note the order longitude, latitude!
         ofVec2f from = ofVec2f(csv.getFloat(i, 2), csv.getFloat(i, 1));
         ofVec2f to = ofVec2f(csv.getFloat(i, 6), csv.getFloat(i, 5));

@@ -27,6 +27,9 @@ class connection {
         ofVec2f from;
         ofVec2f to;
     
+        ofVec3f fromCoords;
+        ofVec3f toCoords;
+    
         // the radius of the globe the connetionon is being projected onto
         float projectionRadius;
     
@@ -35,6 +38,13 @@ class connection {
     
         // 0-1 visual indicator
         float intensity;
+    
+        int alpha;
+        int red;
+        int yellow;
+        float curviness;
+    
+        void updateLook();
 };
 
 #endif /* defined(__GlobeVisualization__link__) */
