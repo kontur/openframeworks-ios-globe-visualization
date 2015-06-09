@@ -10,6 +10,10 @@
 
 globe::globe() {
     sphere.setRadius(100);
+    renderTexture = true;
+    
+    //sphere.enableNormals();
+    sphere.enableTextures();
 }
 
 void globe::update() {
@@ -23,10 +27,9 @@ void globe::draw() {
     
     ofSetColor(255);
     
-    //sphere.enableNormals();
-    sphere.enableTextures();
-    
-    textureImage.getTextureReference().bind();
+    if (renderTexture) {
+	    textureImage.getTextureReference().bind();
+    }
     
     ofRotateX(180);
     
@@ -35,7 +38,10 @@ void globe::draw() {
     glCullFace(GL_FRONT);
     
     sphere.draw();
-    textureImage.unbind();
+    
+    if (renderTexture) {
+	    textureImage.unbind();
+    }
     
     
     ofSetColor(150, 255, 100);
@@ -54,4 +60,8 @@ void globe::draw() {
 void globe::setTexture(string path) {
     textureImage.loadImage(path);
     textureImage.mirror(false, true); // vertical, horizontal
+}
+
+void globe::setTextureRendering(bool render) {
+    renderTexture = render;
 }

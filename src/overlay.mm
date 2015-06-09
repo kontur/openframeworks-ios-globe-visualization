@@ -18,14 +18,21 @@ ofApp *myApp;
     myApp = (ofApp*)ofGetAppPtr();
 }
 
--(IBAction)radiusSliderHandler:(id)sender {
+-(IBAction)numberSliderHandler:(id)sender {
     UISlider *sliderObj = sender;
     //myApp->radius = [sliderObj value];
+    ofLog() << [sliderObj value];
 }
 
--(IBAction)fillSwitchHandler:(id)sender {
+-(IBAction)textureSwitchHandler:(id)sender {
     UISwitch *switchObj = sender;
-    //myApp->hasFill = [switchObj isOn];
+    ofLog() << [switchObj isOn];
+    myApp->toggleTexture([switchObj isOn]);
+}
+
+-(IBAction)locationSearchHandler:(id)sender {
+    UISearchBar *searchBarObj = sender;
+    ofLog() << [searchBarObj text];
 }
 
 @end

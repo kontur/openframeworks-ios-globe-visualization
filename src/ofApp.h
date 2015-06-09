@@ -19,6 +19,7 @@ class ofApp : public ofxiOSApp {
         void draw();
         void exit();
 	
+    	// touch event handlers
         void touchDown(ofTouchEventArgs & touch);
         void touchMoved(ofTouchEventArgs & touch);
         void touchUp(ofTouchEventArgs & touch);
@@ -29,7 +30,10 @@ class ofApp : public ofxiOSApp {
         void gotFocus();
         void gotMemoryWarning();
         void deviceOrientationChanged(int newOrientation);
+    
+    	// user interface
     	overlay *gui;
+	    void toggleTexture(bool);
     
     private:
         // private functions

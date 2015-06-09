@@ -5,12 +5,18 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     
+    // setup the UIKit view
     gui = [[overlay alloc] initWithNibName:@"overlay" bundle:nil];
     [ofxiPhoneGetGLView() addSubview:gui.view];
     
+    // render the view transparent
+    gui.view.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.0];
+    gui.view.opaque = NO;
+    
+    
     ofBackground(0);
     
-    // various rendering intent settings
+    // various OF rendering intent settings
     ofEnableDepthTest();
     ofEnableAlphaBlending();
     ofEnableSmoothing();
@@ -262,4 +268,10 @@ void ofApp::addMarker(string name, ofVec2f latlng, float size) {
         
         markers.push_back(m);
     }
+}
+
+// UI interaction helpers
+
+void ofApp::toggleTexture(bool render) {
+    g.setTextureRendering(render);
 }
