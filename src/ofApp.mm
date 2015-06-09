@@ -39,7 +39,8 @@ void ofApp::setup(){
     // load csv file for now, later make this more dynamic
     csv.loadFile(ofToDataPath("citiesToCities.csv"), ",");
     
-    initConnections();
+    initConnections(10000); // same as slider max value
+    maxConnections = 1000; // initial slider value
 }
 
 //--------------------------------------------------------------
@@ -100,7 +101,8 @@ void ofApp::draw(){
         myMarker.draw();
     }
     
-    for (unsigned int i = 0; i < connections.size(); i++) {
+    //for (unsigned int i = 0; i < connections.size(); i++) {
+    for (unsigned int i = 0; i < maxConnections; i++) {
         connection myConnection = connections.at(i);
         myConnection.draw();
     }
@@ -201,7 +203,7 @@ void ofApp::deviceOrientationChanged(int newOrientation){
  * Helper to load the connections from csv file and push them to the vectors
  * for rendering during draw()
  */
-void ofApp::initConnections() {
+void ofApp::initConnections(int maxRows) {
     
     // csv data like:
     // 0 "departure city",
@@ -215,7 +217,7 @@ void ofApp::initConnections() {
     // 8 "number of routes",
     // 9 "distance"
     
-    for (int i = 1; i < min(csv.numRows, 1000); i++) {
+    for (int i = 1; i < min(csv.numRows, maxRows); i++) {
         // note the order longitude, latitude!
         ofVec2f from = ofVec2f(csv.getFloat(i, 2), csv.getFloat(i, 1));
         ofVec2f to = ofVec2f(csv.getFloat(i, 6), csv.getFloat(i, 5));
@@ -274,4 +276,9 @@ void ofApp::addMarker(string name, ofVec2f latlng, float size) {
 
 void ofApp::toggleTexture(bool render) {
     g.setTextureRendering(render);
+}
+
+void ofApp::setMaxConnections(int connections) {
+    ofLog() << connections;
+    maxConnections = connections;
 }

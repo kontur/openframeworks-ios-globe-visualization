@@ -35,10 +35,11 @@ class ofApp : public ofxiOSApp {
     	// user interface
     	overlayController *gui;
 	    void toggleTexture(bool);
+	    void setMaxConnections(int);
     
     private:
         // private functions
-        void initConnections();
+        void initConnections(int);
         void addMarker(string, ofVec2f, float);
     
     
@@ -61,6 +62,7 @@ class ofApp : public ofxiOSApp {
         // mapped markers and connections vectors
         vector<marker> markers;
         vector<connection> connections;
+	    unsigned int maxConnections;
     
     
         // interaction helpers

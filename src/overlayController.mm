@@ -24,8 +24,8 @@ ofApp *myApp;
 
 -(IBAction)numberSliderHandler:(id)sender {
     UISlider *sliderObj = sender;
-    //myApp->radius = [sliderObj value];
-    ofLog() << [sliderObj value];
+    ofLog() << (int)[sliderObj value];
+    myApp->setMaxConnections([sliderObj value]);
 }
 
 -(IBAction)textureSwitchHandler:(id)sender {
