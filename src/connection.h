@@ -18,6 +18,7 @@ class connection {
         connection();
         void init(ofVec2f, ofVec2f);
         void draw();
+	    void draw(float);
     
         void setIntensity(float);
     

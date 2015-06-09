@@ -39,8 +39,10 @@ void ofApp::setup(){
     // load csv file for now, later make this more dynamic
     csv.loadFile(ofToDataPath("citiesToCities.csv"), ",");
     
-    initConnections(10000); // same as slider max value
+    minLimitConnections = 1;
+    maxLimitConnections = 10000;
     maxConnections = 1000; // initial slider value
+    initConnections(maxLimitConnections); // same as slider max value
 }
 
 //--------------------------------------------------------------
@@ -104,7 +106,11 @@ void ofApp::draw(){
     //for (unsigned int i = 0; i < connections.size(); i++) {
     for (unsigned int i = 0; i < maxConnections; i++) {
         connection myConnection = connections.at(i);
-        myConnection.draw();
+        
+        // adjust curve detail based on amount
+        // not the operands are ints, so cast float explicitly
+        float detail = (float)maxConnections / (maxLimitConnections - minLimitConnections);
+        myConnection.draw(detail);
     }
     
     camera.end();
@@ -279,6 +285,5 @@ void ofApp::toggleTexture(bool render) {
 }
 
 void ofApp::setMaxConnections(int connections) {
-    ofLog() << connections;
     maxConnections = connections;
 }

@@ -29,7 +29,15 @@ void connection::init(ofVec2f _from, ofVec2f _to) {
     updateLook();
 }
 
+/**
+ * Implement argumentless draw() call to conform to OF conventions
+ * Internally just draw curves with maximum detail
+ */
 void connection::draw() {
+    draw(1.0);
+}
+
+void connection::draw(float resolution) {
     ofPushMatrix();
     
     ofRotateY(-90);
@@ -43,9 +51,14 @@ void connection::draw() {
 
     ofSetColor(red, yellow, 0, alpha);
     
+    int curveResolution = (int)(5 + (distance / 10) * (1 - resolution));
+    
     // TODO this could be dyanmically adjusted based on the amount of amount of
     // connection overall displayed
-    ofSetCurveResolution((int)(10 + distance / 10));
+    ofSetCurveResolution(curveResolution);
+    
+    //ofLog() << curveResolution;
+    //ofLog() << resolution;
     
     ofCurve(fromCoords.x * curviness, fromCoords.y * curviness, fromCoords.z * curviness,
             fromCoords.x, fromCoords.y, fromCoords.z,

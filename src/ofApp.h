@@ -62,7 +62,10 @@ class ofApp : public ofxiOSApp {
         // mapped markers and connections vectors
         vector<marker> markers;
         vector<connection> connections;
-	    unsigned int maxConnections;
+
+    	unsigned int maxConnections;
+	    unsigned int minLimitConnections;
+	    unsigned int maxLimitConnections;
     
     
         // interaction helpers

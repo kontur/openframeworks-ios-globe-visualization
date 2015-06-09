@@ -19,7 +19,6 @@
  * pointInside check override passing touch events in the middle through
  */
 -(BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
-    ofLog() << point.y;
     return (point.y > 50 && point.y < 900) ? NO : YES;
 }
 @end
