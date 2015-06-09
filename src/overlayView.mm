@@ -7,16 +7,19 @@
 //
 
 #include "overlayView.h"
+#include "ofApp.h"
 
-@interface PassthroughView : UIView
-@end
+/**
+ * This view is only used to override the pointInside to allow clicking
+ * through the view to the below OF open GL layer
+ */
+@implementation overlayView
 
-@implementation PassthroughView
+/**
+ * pointInside check override passing touch events in the middle through
+ */
 -(BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
-    for (UIView *view in self.subviews) {
-        if (!view.hidden && view.alpha > 0 && view.userInteractionEnabled && [view pointInside:[self convertPoint:point toView:view] withEvent:event])
-            return YES;
-    }
-    return NO;
+    ofLog() << point.y;
+    return (point.y > 50 && point.y < 900) ? NO : YES;
 }
 @end

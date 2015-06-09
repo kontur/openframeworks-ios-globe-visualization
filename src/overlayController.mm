@@ -10,11 +10,15 @@
 #include "overlayController.h"
 #include "ofxiPhoneExtras.h"
 
+/**
+ * UI layer using native UIKit components to interact with the OF open GL layer
+ */
 @implementation overlayController
 
 ofApp *myApp;
 
 -(void)viewDidLoad {
+    // assign reference to the ofApp object to interact with it
     myApp = (ofApp*)ofGetAppPtr();
 }
 
