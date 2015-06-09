@@ -9,7 +9,8 @@
 #include "marker.h"
 #include "helpers.h"
 #include "connection.h"
-#include "overlay.h"
+#include "overlayController.h"
+#include "overlayView.h"
 
 class ofApp : public ofxiOSApp {
 	
@@ -32,7 +33,7 @@ class ofApp : public ofxiOSApp {
         void deviceOrientationChanged(int newOrientation);
     
     	// user interface
-    	overlay *gui;
+    	overlayController *gui;
 	    void toggleTexture(bool);
     
     private:

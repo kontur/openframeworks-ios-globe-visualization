@@ -6,7 +6,7 @@
 void ofApp::setup(){
     
     // setup the UIKit view
-    gui = [[overlay alloc] initWithNibName:@"overlay" bundle:nil];
+    gui = [[overlayController alloc] initWithNibName:@"overlay" bundle:nil];
     [ofxiPhoneGetGLView() addSubview:gui.view];
     
     // render the view transparent

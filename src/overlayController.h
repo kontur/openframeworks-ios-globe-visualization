@@ -12,7 +12,7 @@
 #include <stdio.h>
 #import <UIKit/UIKit.h>
 
-@interface overlay : UIViewController
+@interface overlayController : UIViewController
 
 @property(retain, nonatomic) IBOutlet UISlider *numberSlider;
 @property(retain, nonatomic) IBOutlet UISwitch *textureSwitch;

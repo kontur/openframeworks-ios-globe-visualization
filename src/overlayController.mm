@@ -7,10 +7,10 @@
 //
 
 #include "ofApp.h"
-#include "overlay.h"
+#include "overlayController.h"
 #include "ofxiPhoneExtras.h"
 
-@implementation overlay
+@implementation overlayController
 
 ofApp *myApp;
 
@@ -34,5 +34,4 @@ ofApp *myApp;
     UISearchBar *searchBarObj = sender;
     ofLog() << [searchBarObj text];
 }
-
 @end

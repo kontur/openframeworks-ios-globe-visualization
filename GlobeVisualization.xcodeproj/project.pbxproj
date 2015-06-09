@@ -23,8 +23,9 @@
 		8FBAD1E51B1F2B8E00B00E8A /* marker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAD1E31B1F2B8E00B00E8A /* marker.cpp */; };
 		8FBAD1E71B1F325F00B00E8A /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAD1E61B1F325F00B00E8A /* README.md */; };
 		8FD8F8951B22F93A007F8C86 /* connection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FD8F8941B22F93A007F8C86 /* connection.cpp */; };
-		8FE3D3161B270070009E3A8F /* overlay.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8FE3D3141B270070009E3A8F /* overlay.mm */; };
+		8FE3D3161B270070009E3A8F /* overlayController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8FE3D3141B270070009E3A8F /* overlayController.mm */; };
 		8FE3D3181B27018D009E3A8F /* overlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FE3D3171B27018D009E3A8F /* overlay.xib */; };
+		8FE3D31B1B2736EC009E3A8F /* overlayView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8FE3D3191B2736EC009E3A8F /* overlayView.mm */; };
 		8FF6F7631B25A35600695929 /* ofxCsv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FF6F7611B25A35600695929 /* ofxCsv.cpp */; };
 		BB16EBD20F2B2A9500518274 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD10F2B2A9500518274 /* OpenGLES.framework */; };
 		BB16EBD90F2B2AB500518274 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD80F2B2AB500518274 /* QuartzCore.framework */; };
@@ -81,9 +82,11 @@
 		8FBAD1E61B1F325F00B00E8A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8FD8F8941B22F93A007F8C86 /* connection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = connection.cpp; sourceTree = "<group>"; };
 		8FD8F8961B22F950007F8C86 /* connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = connection.h; sourceTree = "<group>"; };
-		8FE3D3141B270070009E3A8F /* overlay.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = overlay.mm; sourceTree = "<group>"; };
-		8FE3D3151B270070009E3A8F /* overlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = overlay.h; sourceTree = "<group>"; };
+		8FE3D3141B270070009E3A8F /* overlayController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = overlayController.mm; sourceTree = "<group>"; };
+		8FE3D3151B270070009E3A8F /* overlayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = overlayController.h; sourceTree = "<group>"; };
 		8FE3D3171B27018D009E3A8F /* overlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = overlay.xib; sourceTree = "<group>"; };
+		8FE3D3191B2736EC009E3A8F /* overlayView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = overlayView.mm; sourceTree = "<group>"; };
+		8FE3D31A1B2736EC009E3A8F /* overlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = overlayView.h; sourceTree = "<group>"; };
 		8FF6F7611B25A35600695929 /* ofxCsv.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxCsv.cpp; sourceTree = "<group>"; };
 		8FF6F7621B25A35600695929 /* ofxCsv.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxCsv.h; sourceTree = "<group>"; };
 		BB16EBD10F2B2A9500518274 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -248,8 +251,10 @@
 				8FBAD1E31B1F2B8E00B00E8A /* marker.cpp */,
 				8FBAD1E41B1F2B8E00B00E8A /* marker.h */,
 				8F8529BB1B22EEAB00F5489A /* helpers.cpp */,
-				8FE3D3141B270070009E3A8F /* overlay.mm */,
-				8FE3D3151B270070009E3A8F /* overlay.h */,
+				8FE3D3191B2736EC009E3A8F /* overlayView.mm */,
+				8FE3D31A1B2736EC009E3A8F /* overlayView.h */,
+				8FE3D3141B270070009E3A8F /* overlayController.mm */,
+				8FE3D3151B270070009E3A8F /* overlayController.h */,
 				8FE3D3171B27018D009E3A8F /* overlay.xib */,
 				8F8529BC1B22EEAB00F5489A /* helpers.h */,
 				8FD8F8941B22F93A007F8C86 /* connection.cpp */,
@@ -364,12 +369,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FBAD1E51B1F2B8E00B00E8A /* marker.cpp in Sources */,
+				8FE3D31B1B2736EC009E3A8F /* overlayView.mm in Sources */,
 				8F8529BD1B22EEAB00F5489A /* helpers.cpp in Sources */,
 				8FBAD1E71B1F325F00B00E8A /* README.md in Sources */,
 				E4D8936E11527B74007E1F53 /* main.mm in Sources */,
 				8FF6F7631B25A35600695929 /* ofxCsv.cpp in Sources */,
 				8F4B0A951B1F60F500E31046 /* globe.cpp in Sources */,
-				8FE3D3161B270070009E3A8F /* overlay.mm in Sources */,
+				8FE3D3161B270070009E3A8F /* overlayController.mm in Sources */,
 				E4D8936F11527B74007E1F53 /* ofApp.mm in Sources */,
 				8FD8F8951B22F93A007F8C86 /* connection.cpp in Sources */,
 			);
