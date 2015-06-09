@@ -1,7 +1,13 @@
 #include "ofApp.h"
 
+
+
 //--------------------------------------------------------------
 void ofApp::setup(){
+    
+    gui = [[overlay alloc] initWithNibName:@"overlay" bundle:nil];
+    [ofxiPhoneGetGLView() addSubview:gui.view];
+    
     ofBackground(0);
     
     // various rendering intent settings

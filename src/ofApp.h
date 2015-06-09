@@ -9,6 +9,7 @@
 #include "marker.h"
 #include "helpers.h"
 #include "connection.h"
+#include "overlay.h"
 
 class ofApp : public ofxiOSApp {
 	
@@ -28,6 +29,7 @@ class ofApp : public ofxiOSApp {
         void gotFocus();
         void gotMemoryWarning();
         void deviceOrientationChanged(int newOrientation);
+    	overlay *gui;
     
     private:
         // private functions
