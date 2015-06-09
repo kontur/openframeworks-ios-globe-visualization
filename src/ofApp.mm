@@ -39,6 +39,11 @@ void ofApp::update(){
     rotation = rotation - rotationSpeed;
     rotationSpeed *= 0.9;
     
+    // don't allow globe to rotate upside down
+    if (abs(rotation.y) > 45) {
+        rotationSpeed.y *= 0.25;
+    }
+    
     // update zoom in a gentle manner by easing it with a portion
     // of previous zoom state
     zoom = zoom * zoomEasing + (1 - newZoom * zoomEasing);
@@ -54,6 +59,11 @@ void ofApp::draw(){
     // setup the camera
     // zoom is the distance of camera to the world origin on z axis
     camera.setPosition(ofVec3f(0, 0, zoom * 100 + 300));
+    
+    // rotation along x axis is implemented by rotating the camera around origin
+    // that way the rotation along y axis affects the globe only in one dimension
+    camera.rotateAround(-rotation.y, ofVec3f(1, 0, 0), ofVec3f(0, 0, 0));
+    
     camera.lookAt(ofVec3f(0, 0, 0));
     camera.setNearClip(0.0);
     camera.setFarClip(1000.0);
@@ -65,10 +75,8 @@ void ofApp::draw(){
     //spotlight.setDiffuseColor(ofColor(0, 150, 255));
     spotlight.lookAt(ofVec3f(0, 0, 0));
     
-  
     // rotate the whole view based on interaction
     ofRotate(rotation.x, 0.0, 1.0, 0.0);
-    ofRotate(rotation.y, 1.0, 0.0, 0.0);
     
     
     // draw globe
@@ -177,13 +185,11 @@ void ofApp::deviceOrientationChanged(int newOrientation){
 
 
 // other app functions
+/**
+ * Helper to load the connections from csv file and push them to the vectors
+ * for rendering during draw()
+ */
 void ofApp::initConnections() {
-    /*
-    ofLog() << csv.data[0].max_size();
-    ofLog() << csv.getString(0, 0);
-    */
-    ofLog() << csv.numRows;
-    
     
     // csv data like:
     // 0 "departure city",
