@@ -43,23 +43,19 @@ void connection::draw(float resolution) {
     ofRotateY(-90);
     ofRotateX(-90);
     
-    // set dynamic "steepness" of the curve based on the absolute distance
-    // between the point; this essentially makes sure the connection curves enough
-    // to not go through the globe
     ofNoFill();
-    ofSetLineWidth(1);
+    ofSetLineWidth(1 + intensity);
 
     ofSetColor(red, yellow, 0, alpha);
     
+    // make the curve more or less detailed
     int curveResolution = (int)(5 + (distance / 10) * (1 - resolution));
     
-    // TODO this could be dyanmically adjusted based on the amount of amount of
-    // connection overall displayed
     ofSetCurveResolution(curveResolution);
     
-    //ofLog() << curveResolution;
-    //ofLog() << resolution;
-    
+    // draw the curve where the coordinates multiplied by the curviness offset
+    // the curve control points "beyond" the globe surface, as seen from screen origin
+    // thus making the curves bend more or less outwards from the globe
     ofCurve(fromCoords.x * curviness, fromCoords.y * curviness, fromCoords.z * curviness,
             fromCoords.x, fromCoords.y, fromCoords.z,
             toCoords.x, toCoords.y, toCoords.z,
@@ -80,5 +76,9 @@ void connection::updateLook() {
     alpha = (int)ofMap(intensity, 0.0, 1.0, 10.0, 200.0);
     red = (int)ofMap(intensity, 0.0, 1.0, 0.0, 255.0);
     yellow = 255 - red;
-    curviness = -5 * ofMap(distance, 0, 200, 0.5, 2);
+    
+    // set dynamic "steepness" of the curve based on the absolute distance
+    // between the point; this essentially makes sure the connection curves enough
+    // to not go through the globe
+    curviness = -2 * ofMap(distance, 0, 200, 0.5, 2);
 }
