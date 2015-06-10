@@ -24,16 +24,17 @@ void globe::draw() {
     
     ofPushMatrix();
     
+    // enable solid surface and backface culling in Open GL
+    glEnable(GL_CULL_FACE); // Cull back facing polygons
+    glCullFace(GL_FRONT);
     
     if (renderTexture) {
+        ofFill();
         ofSetColor(255);
         textureImage.getTextureReference().bind();
-        
-        // enable solid surface and backface culling in Open GL
-        glEnable(GL_CULL_FACE); // Cull back facing polygons
-        glCullFace(GL_FRONT);
     } else {
-        ofSetColor(0, 150, 255, 150);
+        ofNoFill();
+        ofSetColor(0, 150, 255, 100);
     }
     
     ofRotateX(180);
@@ -45,9 +46,9 @@ void globe::draw() {
     }
     
     
-    ofSetColor(150, 255, 100);
+    //ofSetColor(150, 255, 100);
     //sphere.drawNormals(5);
-    sphere.drawAxes(150);
+    //sphere.drawAxes(150);
     
     ofSetLineWidth(0.5);
     ofSetColor(0, 50, 75, 50);

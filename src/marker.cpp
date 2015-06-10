@@ -25,7 +25,11 @@ void marker::draw() {
     
     ofSetColor(255, 120, 0, 100);
     ofFill();
-    ofDrawSphere(coordinates.x, coordinates.y, coordinates.z, radius);
+    
+    sphere.setPosition(coordinates.x, coordinates.y, coordinates.z);
+    sphere.setRadius(radius);
+    //sphere.setResolution(4);
+    sphere.draw();
     
     ofPopMatrix();
 }

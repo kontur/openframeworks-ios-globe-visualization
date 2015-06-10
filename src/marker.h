@@ -43,6 +43,8 @@ class marker {
         ofVec2f geolocation;
         ofVec3f coordinates;
     
+	    ofSpherePrimitive sphere;
+    
         void updateCoordinates(float);
     
 };
