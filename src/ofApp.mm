@@ -39,9 +39,11 @@ void ofApp::setup(){
     // load csv file for now, later make this more dynamic
     csv.loadFile(ofToDataPath("citiesToCities.csv"), ",");
     
+    // TODO it would be nice to pass these dynamically form the slider
+    // or the other way around, so that setup is done in one place only
     minLimitConnections = 1;
-    maxLimitConnections = 10000;
-    maxConnections = 1000; // initial slider value
+    maxLimitConnections = 2000;
+    maxConnections = 200; // initial slider value
     initConnections(maxLimitConnections); // same as slider max value
 }
 

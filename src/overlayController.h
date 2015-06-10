@@ -16,7 +16,6 @@
 
 @property(retain, nonatomic) IBOutlet UISlider *numberSlider;
 @property(retain, nonatomic) IBOutlet UISwitch *textureSwitch;
-@property(retain, nonatomic) IBOutlet UISearchBar *locationSearch;
 
 @end
 #endif /* defined(__GlobeVisualization__overlay__) */

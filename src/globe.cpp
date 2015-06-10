@@ -45,9 +45,9 @@ void globe::draw() {
     }
     
     
-    ofSetColor(150, 255, 100);
+    //ofSetColor(150, 255, 100);
     //sphere.drawNormals(5);
-    sphere.drawAxes(150);
+    //sphere.drawAxes(150);
     
     ofSetLineWidth(0.5);
     ofSetColor(0, 50, 75, 50);

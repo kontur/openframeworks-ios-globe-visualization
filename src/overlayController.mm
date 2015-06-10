@@ -34,8 +34,4 @@ ofApp *myApp;
     myApp->toggleTexture([switchObj isOn]);
 }
 
--(IBAction)locationSearchHandler:(id)sender {
-    UISearchBar *searchBarObj = sender;
-    ofLog() << [searchBarObj text];
-}
 @end
