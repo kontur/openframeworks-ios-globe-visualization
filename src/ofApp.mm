@@ -23,6 +23,7 @@ void ofApp::setup(){
     ofEnableBlendMode(OF_BLENDMODE_ADD);
     
     g.setTexture("earth.bmp");
+    g.setDomeTexture("nightsky.bmp");
     
     // start of with not rotation on the globe
     // note both the speed of rotation and the current rotation
@@ -83,14 +84,21 @@ void ofApp::draw(){
     
     camera.lookAt(ofVec3f(0, 0, 0));
     camera.setNearClip(0.0);
-    camera.setFarClip(1000.0);
+    camera.setFarClip(10000.0);
 
     // setup lights
     spotlight.enable();
+    spotlight.setSpotlight();
     spotlight.setPosition(-300, 300, 300);
     spotlight.setAmbientColor(ofColor(200, 240, 255));
-    //spotlight.setDiffuseColor(ofColor(0, 150, 255));
     spotlight.lookAt(ofVec3f(0, 0, 0));
+    
+    skylight.enable();
+    skylight.setPointLight();
+    skylight.setPosition(0, 200, 200);
+    skylight.setAmbientColor(ofColor(255, 255, 255));
+    skylight.setDiffuseColor(ofColor(255, 255, 255));
+
     
     // rotate the whole view based on interaction
     ofRotate(rotation.x, 0.0, 1.0, 0.0);

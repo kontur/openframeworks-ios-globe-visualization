@@ -19,11 +19,14 @@ class globe {
         void update();
         void draw();
         void setTexture(string);
-    void setTextureRendering(bool);
+	    void setDomeTexture(string);
+    	void setTextureRendering(bool);
     
     private:
         ofImage textureImage;
+	    ofImage domeTexture;
         ofSpherePrimitive sphere;
+	    ofSpherePrimitive dome;
 	    bool renderTexture;
     
 };

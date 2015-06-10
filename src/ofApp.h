@@ -48,7 +48,8 @@ class ofApp : public ofxiOSApp {
         // 3d scene setup
         ofCamera camera;
         ofLight spotlight;
-        
+	    ofLight skylight;
+    
         float zoom;
         float newZoom;
         float zoomEasing;
