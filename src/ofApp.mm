@@ -22,7 +22,7 @@ void ofApp::setup(){
     ofEnableSmoothing();
     ofEnableBlendMode(OF_BLENDMODE_ADD);
     
-    g.setTexture("earth2.bmp");
+    g.setTexture("earth.bmp");
     
     // start of with not rotation on the globe
     // note both the speed of rotation and the current rotation
