@@ -3,22 +3,22 @@ General planning and TODO file for the Globe Visualization project
 
 Tasks:
 
-* render a globe
-    * texture mapping
+* render a globe (DONE)
+    * texture mapping (DONE)
 
-* touch interaction
-    * touch rotate
-    * pinch zoom
-    * add interface:
-        * viewport reset button
-        * init screen
-        * (maybe) UIKit slider for # connections / connection tension
+* touch interaction (DONE)
+    * touch rotate (DONE)
+    * pinch zoom (DONE)
+    * add interface: (DONE)
+        * viewport reset button (not needed)
+        * init screen (DONE)
+        * (maybe) UIKit slider for # connections / connection tension (DONE)
 
 * drawing connection arcs
-    * data for connections
-        * read in json
-    * mapping from geolocation to sphere coordinated
+    * data for connections (DONE)
+        * read in json (currently implemented as packaged csv file)
+    * mapping from geolocation to sphere coordinated (DONE)
 
 Improvements:
-* touch rotate behaves unnatural; y axis rotate inverts on the backside of the sphere...
-* connections are drawn even behind the globe / globe not "solid"
+* touch rotate behaves unnatural; y axis rotate inverts on the backside of the sphere... (DONE)
+* connections are drawn even behind the globe / globe not "solid" (DONE)
